@@ -1,3 +1,5 @@
+package model;
+
 public final class Veterinario extends Pessoa implements Folha {
     private String especialidade;
 
@@ -15,7 +17,7 @@ public final class Veterinario extends Pessoa implements Folha {
 
     @Override
     public String toString() {
-        return "Veterinario{" +
+        return "model.Veterinario{" +
                 "especialidade='" + especialidade + '\'' +
                 '}';
     }

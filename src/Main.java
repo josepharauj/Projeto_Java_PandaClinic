@@ -1,3 +1,5 @@
+import model.Pessoa;
+
 import java.util.Scanner;
 
 public class Main {

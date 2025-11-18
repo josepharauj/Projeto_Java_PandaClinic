@@ -1,6 +1,6 @@
 public enum EstadoAnimal {
     SAUDAVEL,
     DOENTE,
-    FERIDO,
-    TRATAMENTO
+    URGENCIA,
+    TRATAMENTO;
 }

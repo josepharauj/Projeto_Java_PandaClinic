@@ -1,17 +1,19 @@
+package model;
+
 public final class Animal {
 
     private String nome;
     private int idade;
-
-
     private TipoAnimal tipo;  //enum
-    private EstadoAnimal estado; //enum
+    private EstadoAnimal estado;
+    private PorteAnimal porte; //enum
 
-    public Animal(String nome, int idade, TipoAnimal tipo, EstadoAnimal estado) {
+    public Animal(String nome, int idade, TipoAnimal tipo, EstadoAnimal estado, PorteAnimal porte) {
         this.nome = nome;
         this.idade = idade;
         this.tipo = tipo;
         this.estado = estado;
+        this.porte = porte;
     }
      //gets e sets
     public String getNome() { return nome;}
@@ -35,13 +37,22 @@ public final class Animal {
         this.estado = estado;
     }
 
+    public PorteAnimal getPorte() {
+        return porte;
+    }
+
+    public void setPorte(PorteAnimal porte) {
+        this.porte = porte;
+    }
+
     @Override
     public String toString() {
-        return "Animal{" +
+        return "model.Animal{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", tipo=" + tipo +
                 ", estado=" + estado +
+                ", porte=" + porte +
                 '}';
     }
 }

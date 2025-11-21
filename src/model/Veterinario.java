@@ -1,5 +1,7 @@
 package model;
 
+import model.interfaces.Folha;
+
 public final class Veterinario extends Pessoa implements Folha {
     private String especialidade;
 

@@ -1,19 +1,23 @@
 package model;
 
+import enums.*;
+
 public final class Animal {
 
     private String nome;
     private int idade;
-    private TipoAnimal tipo;  //enum
-    private EstadoAnimal estado;
+    private TipoAnimal tipoa;  //enum
+    private EstadoAnimal estado; //enum
     private PorteAnimal porte; //enum
+    private TipoConsulta tipoc; //enum
 
-    public Animal(String nome, int idade, TipoAnimal tipo, EstadoAnimal estado, PorteAnimal porte) {
+    public Animal(String nome, int idade, TipoAnimal tipoa, EstadoAnimal estado, PorteAnimal porte, TipoConsulta tipoc) {
         this.nome = nome;
         this.idade = idade;
-        this.tipo = tipo;
+        this.tipoa = tipoa;
         this.estado = estado;
         this.porte = porte;
+        this.tipoc = tipoc;
     }
      //gets e sets
     public String getNome() { return nome;}
@@ -27,9 +31,9 @@ public final class Animal {
         this.idade = idade;}
 
     public TipoAnimal getTipo() {
-        return tipo;}
+        return tipoa;}
     public void setTipo(TipoAnimal tipo) {
-        this.tipo = tipo;}
+        this.tipoa = tipo;}
 
     public EstadoAnimal getEstado() {
         return estado;}
@@ -40,9 +44,13 @@ public final class Animal {
     public PorteAnimal getPorte() {
         return porte;
     }
-
     public void setPorte(PorteAnimal porte) {
         this.porte = porte;
+    }
+
+    public TipoConsulta getTipoc() { return tipoc;}
+    public void setTipoc(TipoConsulta tipoc) {
+        this.tipoc = tipoc;
     }
 
     @Override
@@ -50,9 +58,10 @@ public final class Animal {
         return "model.Animal{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
-                ", tipo=" + tipo +
+                ", tipoa=" + tipoa +
                 ", estado=" + estado +
                 ", porte=" + porte +
+                ", tipoc=" + tipoc +
                 '}';
     }
 }

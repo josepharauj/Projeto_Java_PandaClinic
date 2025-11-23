@@ -1,7 +1,7 @@
 package enums;
 
 public enum TipoConsulta {
-    CONSULTA_VETERINARIA("Consulta normal."),
+    ROTINA("Consulta de rotina."),
     VACINACAO("Vacinação de rotina."),
     EMERGENCIA("Atendimento de emergência."),
     RETORNO("Retorno de consulta. "),

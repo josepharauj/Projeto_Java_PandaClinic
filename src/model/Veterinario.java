@@ -11,14 +11,8 @@ public final class Veterinario extends Pessoa implements Folha {
         this.especialidade = especialidade;
     }
 
-    public String getEspecialidade() {
-
-        return especialidade;
-    }
-    public void setEspecialidade(String especialidade) {
-
-        this.especialidade = especialidade;
-    }
+    public String getEspecialidade() { return especialidade; }
+    public void setEspecialidade(String especialidade) { this.especialidade = especialidade;}
 
     @Override
     public void quemSou() {

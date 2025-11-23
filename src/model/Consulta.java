@@ -7,13 +7,16 @@ public class Consulta {
     private Veterinario v;
     private TipoConsulta tipoc;
     private String data;
+    private boolean paga;
     private double valor;
+
 
     public Consulta(Animal a, Veterinario v,TipoConsulta tipoc, String data) {
         this.a = a;
         this.v = v;
         this.tipoc = tipoc;
         this.data = data;
+        this.paga = false;
         this.valor = calcularValor();
     }
 
@@ -23,6 +26,7 @@ public class Consulta {
         switch (tipoc) {
             case ROTINA:
                 base = 80;
+                break;
             case VACINACAO:
                 base = 100;
                 break;
@@ -51,15 +55,27 @@ public class Consulta {
 
         return base;
     }
+    public void registrarPagamento() {
+        this.paga = true;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public boolean isPaga() {
+        return paga;
+    }
 
 
     @Override
     public String toString() {
         return "Consulta{" +
-                "a=" + a +
-                ", v=" + v +
+                "a=" + a.getNome() +
+                ", v=" + v.getNome() +
                 ", tipoc=" + tipoc +
                 ", data='" + data + '\'' +
+                ", paga= " + (paga ? "SIM" : "NÂO") +
                 ", valor=" + valor +
                 '}';
     }

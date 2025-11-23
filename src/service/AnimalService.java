@@ -38,4 +38,14 @@ public class AnimalService {
             System.out.println(a);
         }
     }
+
+    public Animal buscarPorNome(String nome) {
+        for (Animal a : repository.listar()) {
+            if (a.getNome().equalsIgnoreCase(nome)) {
+                return a;
+            }
+        }
+        return null;
+    }
+
 }

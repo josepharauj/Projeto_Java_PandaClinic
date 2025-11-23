@@ -38,6 +38,15 @@ public class VeterinarioService {
         return repo;
     }
 
+    public Veterinario buscarPorNome(String nome) {
+        for (Veterinario v : repo.listar()) {
+            if (v.getNome().equalsIgnoreCase(nome)) {
+                return v;
+            }
+        }
+        return null;
+    }
+
 
 
 }

@@ -29,7 +29,9 @@ public class ConsultaRegrasService {
         this.c.remove(index);
     }
 
-    public void alterarConsulta (int index, Animal a, Veterinario v, String data){
-        this.c.set(index, new Consulta(a,v,tipoc,data));
+    public void alterarConsulta (int index, Animal a, Veterinario v, String data) {
+        if (index >= 0 && index < consultas.size()) {
+            consultas.set(index, new Consulta(a, v, tipoc, data));
+        }
     }
 }

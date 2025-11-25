@@ -14,18 +14,26 @@ public class AnimalService {
 
         System.out.println("---CADASTRE SEU PET AQUI!---");
 
-        System.out.println("Informe o tipo do seu Pet: (GATO, CACHORRO, PASSARO OU VACA): ");
-        String tipoStr = sc.nextLine().toUpperCase();
-        TipoAnimal tipoa = TipoAnimal.valueOf(tipoStr);
+        System.out.println("Infome o nome do animal: ");
+        String nome = sc.nextLine();
 
-        System.out.println("Agora informe a idade: ");
+        System.out.println("Informe o tipo do seu Pet: (GATO, CACHORRO, PASSARO OU VACA): ");
+        TipoAnimal tipoa = TipoAnimal.valueOf(sc.nextLine().toUpperCase());
+
+        System.out.println("Informe a idade: ");
         int idade = Integer.parseInt(sc.nextLine());
 
         System.out.println("Informe o estado de saúde: (SAUDAVEL, DOENTE, URGÊNCIA OU EM TRATAMENTO): ");
-        String estadoStr = sc.nextLine().toUpperCase();
-        EstadoAnimal estado = EstadoAnimal.valueOf(estadoStr);
+        EstadoAnimal estado = EstadoAnimal.valueOf(sc.nextLine().toUpperCase());
 
-        Animal a = new Animal(idade, tipoa, estado);
+        System.out.println("Informe o porte (PEQUENO, MEDIO, GRANDE)");
+        PorteAnimal porte = PorteAnimal.valueOf(sc.nextLine().toUpperCase());
+
+        System.out.println("Informe o tipo de consulta (ROTINA, VACINACAO, EMERGENCIA, RETORNO, CIRURGIA):");
+        TipoConsulta tipoc = TipoConsulta.valueOf(sc.nextLine().toUpperCase());
+
+        Animal a = new Animal(nome, idade, tipoa, estado, porte, tipoc);
+
         repository.salvar(a);
 
         System.out.println("Seu animal foi cadastrado com sucesso!");

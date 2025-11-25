@@ -4,14 +4,14 @@ import enums.TipoConsulta;
 import model.*;
 import java.util.ArrayList;
 
-public class ConsultaRegrasService {
+public class ConsultaService {
 
     private ArrayList<Consulta> c = new ArrayList<>();
 
     private AnimalService animalService;
     private VeterinarioService vetService;
 
-    public ConsultaRegrasService(AnimalService animalService, VeterinarioService vetService) {
+    public ConsultaService(AnimalService animalService, VeterinarioService vetService) {
         this.animalService = animalService;
         this.vetService = vetService;
     }
@@ -29,9 +29,9 @@ public class ConsultaRegrasService {
         this.c.remove(index);
     }
 
-    public void alterarConsulta (int index, Animal a, Veterinario v, String data) {
-        if (index >= 0 && index < consultas.size()) {
-            consultas.set(index, new Consulta(a, v, tipoc, data));
+    public void alterarConsulta (int index, Animal a, Veterinario v, TipoConsulta tipoc, String data) {
+        if (index >= 0 && index < c.size()) {
+            c.set(index, new Consulta(a, v, tipoc, data));
         }
     }
 }

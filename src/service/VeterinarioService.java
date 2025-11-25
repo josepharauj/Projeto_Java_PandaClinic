@@ -18,9 +18,15 @@ public class VeterinarioService {
         int idade = Integer.parseInt(sc.nextLine());
 
         System.out.print("Especialidade: ");
-        String esp = sc.nextLine();
+        String especialidade = sc.nextLine();
 
-        Veterinario v = new Veterinario(nome, idade, esp);
+        System.out.println("CPF: ");
+        String cpf = sc.nextLine();
+
+        System.out.println("Telefone:");
+        int telefone = sc.nextInt();
+
+        Veterinario v = new Veterinario(nome, idade, especialidade, cpf, telefone);
 
         repo.salvar(v);
 

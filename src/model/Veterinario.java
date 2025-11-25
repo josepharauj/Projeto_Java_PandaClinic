@@ -5,10 +5,12 @@ import model.interfaces.Folha;
 public final class Veterinario extends Pessoa implements Folha {
 
     private String especialidade;
+    private double salarioBase;
 
-    public Veterinario(String nome, int idade, String especialidade) {
-        super(nome, idade);
+    public Veterinario(String nome, int idade, String especialidade, String cpf, int telefone) {
+        super(nome, idade, cpf, telefone);
         this.especialidade = especialidade;
+        this.salarioBase = 4500.0;
     }
 
     public String getEspecialidade() { return especialidade; }
@@ -25,15 +27,21 @@ public final class Veterinario extends Pessoa implements Folha {
     }
 
     @Override
-    public void calculaSalario() {
+    public double calculaSalario() {
+        return salarioBase;
+
 
     }
+
     @Override
     public String toString() {
         return "Veterinario{" +
-                "especialidade='" + especialidade + '\'' +
-                ", nome='" + nome + '\'' +
+                "nome='" + nome + '\'' +
                 ", idade=" + idade +
+                ", cpf='" + cpf + '\'' +
+                ", telefone=" + telefone +
+                ", especialidade" + especialidade +
+                ",salarioBase" + salarioBase +
                 '}';
     }
 

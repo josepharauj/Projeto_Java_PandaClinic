@@ -7,19 +7,19 @@ import model.Consulta;
 import model.Veterinario;
 import service.AnimalService;
 import service.VeterinarioService;
-import service.ConsultaRegrasService;
+import service.ConsultaService;
 
 import java.util.Scanner;
 
 public class ConsultaController {
 
-    private ConsultaRegrasService service;
+    private ConsultaService service;
     private AnimalService animalService;
     private VeterinarioService vetService;
     private Scanner sc = new Scanner(System.in);
 
 
-    public ConsultaController(ConsultaRegrasService service,
+    public ConsultaController(ConsultaService service,
                               AnimalService animalService,
                               VeterinarioService vetService) {
         this.service = service;
@@ -107,7 +107,7 @@ public class ConsultaController {
             return;
         }
 
-        c.setPaga(true);
+        c.registrarPagamento();
         System.out.println("Pagamento registrado! Valor: R$ " + c.getValor());
     }
 

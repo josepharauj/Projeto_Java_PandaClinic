@@ -9,6 +9,10 @@ public class AnimalController {
     private AnimalService animalService = new AnimalService();
     private Scanner sc = new Scanner(System.in);
 
+    public AnimalController(AnimalService animalService) {
+        this.animalService = animalService;
+    }
+
     public void cadastrarAnimal() {
         animalService.cadastrarAnimal();
     }
@@ -18,6 +22,7 @@ public class AnimalController {
     }
 
     public void buscarPorNome() {
+
         System.out.println("Digite o nome do animal para buscar:");
         String nome = sc.nextLine();
 

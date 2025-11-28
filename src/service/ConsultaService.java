@@ -41,17 +41,17 @@ public class ConsultaService {
             return false;
         }
 
-        Consulta c = c.get(index);
+        Consulta consulta = c.get(index);
 
-        if (c.isPaga()) {
+        if (consulta.isPaga()) {
             return false; // já paga
         }
 
         // Marca como paga
-        c.isPaga(true);
+        consulta.registrarPagamento();
 
         // Soma ao total da clínica
-        totalRecebido += c.getValor();
+        totalRecebido += consulta.getValor();
 
         return true;
     }

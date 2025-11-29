@@ -10,6 +10,7 @@ public final class Animal {
     private EstadoAnimal estado; //enum
     private PorteAnimal porte; //enum
     private TipoConsulta tipoc; //enum
+    private Tutor tutor;
 
     public Animal(String nome, int idade, TipoAnimal tipoa, EstadoAnimal estado, PorteAnimal porte, TipoConsulta tipoc) {
         this.nome = nome;
@@ -18,6 +19,7 @@ public final class Animal {
         this.estado = estado;
         this.porte = porte;
         this.tipoc = tipoc;
+        this.tutor = tutor;
     }
      //gets e sets
     public String getNome() { return nome;}
@@ -53,15 +55,22 @@ public final class Animal {
         this.tipoc = tipoc;
     }
 
+    public Tutor getTutor() { return tutor;
+    }
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
     @Override
     public String toString() {
-        return "model.Animal{" +
+        return "Animal{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
                 ", tipoa=" + tipoa +
                 ", estado=" + estado +
                 ", porte=" + porte +
                 ", tipoc=" + tipoc +
+                ", tutor=" + tutor +
                 '}';
     }
 }

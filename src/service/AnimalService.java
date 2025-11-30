@@ -2,19 +2,25 @@ package service;
 
 import java.util.Scanner;
 import model.Animal;
+import model.Tutor;
 import enums.*;
 import repository.*;
 
 public class AnimalService {
 
     private AnimalRepository repository = new AnimalRepository();
+    private TutorService tutorService;
     private Scanner sc = new Scanner(System.in);
+
+    public AnimalService(TutorService tutorService) {
+        this.tutorService = tutorService;
+    }
 
     public void cadastrarAnimal() {
 
         System.out.print("---CADASTRE SEU PET AQUI!---");
 
-        System.out.print("Infome o nome do animal: ");
+        System.out.print("Nome do animal: ");
         String nome = sc.nextLine();
 
         System.out.print("Informe o tipo do seu Pet: (GATO, CACHORRO, PASSARO OU VACA): ");
@@ -33,6 +39,21 @@ public class AnimalService {
         TipoConsulta tipoc = TipoConsulta.valueOf(sc.nextLine().toUpperCase());
 
         Animal a = new Animal(nome, idade, tipoa, estado, porte, tipoc);
+
+        //Assoiciando animal ao tutor
+        System.out.println("Informe o nome do tutor do animal (ou deixe vazio para nenhum tutor): ");
+        String nomeTutor = sc.nextLine();
+
+        if (!nomeTutor.isEmpty()) {
+            Tutor tutor = tutorService.buscarPorNome(nomeTutor);
+
+            if (tutor != null) {
+                a.setTutor(tutor);
+                System.out.println("Tutor associado com sucesso!");
+            } else {
+                System.out.println("Tutor não encontrado! Animal será cadastrado sem tutor.");
+            }
+        }
 
         repository.salvar(a);
 

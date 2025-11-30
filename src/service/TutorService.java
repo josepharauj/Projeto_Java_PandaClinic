@@ -17,13 +17,6 @@ public class TutorService {
         return tutores;
     }
 
-    public void adicionarAnimalAoTutor(int idTutor, Animal animal) {
-        Tutor t = tutores.get(idTutor);
-        if (t != null) {
-            t.adicionarAnimal(animal);
-        }
-    }
-
     public Tutor buscarPorNome(String nome) {
         for (Tutor t : tutores) {
             if (t.getNome().equalsIgnoreCase(nome)) {
@@ -31,5 +24,15 @@ public class TutorService {
             }
         }
         return null;
+    }
+
+    public boolean adicionarAnimalAoTutor(String nomeTutor, Animal animal) {
+        Tutor t = buscarPorNome(nomeTutor);
+
+        if (t != null) {
+            t.adicionarAnimal(animal);
+            return true;
+        }
+        return false;
     }
 }

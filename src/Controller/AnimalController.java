@@ -3,17 +3,15 @@ package Controller;
 import java.util.Scanner;
 import model.Animal;
 import service.AnimalService;
-import service.TutorService;
+
 
 public class AnimalController {
 
     private AnimalService animalService;
-    private TutorService tutorService;
     private Scanner sc = new Scanner(System.in);
 
-    public AnimalController(AnimalService animalService, TutorService tutorService) {
+    public AnimalController(AnimalService animalService) {
         this.animalService = animalService;
-        this.tutorService = tutorService;
     }
 
     public void cadastrarAnimal() {
@@ -29,11 +27,11 @@ public class AnimalController {
         System.out.println("Digite o nome do animal para buscar:");
         String nome = sc.nextLine();
 
-        Animal encontrado = animalService.buscarPorNome(nome);
+        var a = animalService.buscarPorNome(nome);
 
-        if (encontrado != null) {
+        if (a != null) {
             System.out.println("Animal encontrado:");
-            System.out.println(encontrado);
+            System.out.println(a);
         } else {
             System.out.println("Nenhum animal encontrado com esse nome.");
         }

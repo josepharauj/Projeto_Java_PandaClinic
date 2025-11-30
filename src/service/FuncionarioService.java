@@ -34,8 +34,8 @@ public class FuncionarioService {
     }
 
 
-    public void salvar(Funcionario f) {
-        funcionarios.add(f);
+    public void salvar(Funcionario funcionario) {
+        funcionarios.add(funcionario);
     }
 
     public List<Funcionario> listar() {

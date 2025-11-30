@@ -8,23 +8,23 @@ import java.util.List;
 
 public class FolhaService {
 
-    private List<Double> pagamentos = new ArrayList<>();
+    private List<Folha> pagamentos = new ArrayList<>();
 
     // recebe qualquer funcionário OU veterinário
     public double pagar(Folha f) {
         double salario = f.calculaSalario();
-        pagamentos.add(salario);
+        pagamentos.add(f);
         return salario;
     }
 
-    public List<Double> listarPagamentos() {
+    public List<Folha> listarPagamentos() {
         return pagamentos;
     }
 
     public double totalPago() {
         double total = 0;
-        for (Double p : pagamentos) {
-            total += p;
+        for (Folha f : pagamentos) {
+            total += f.calculaSalario();
         }
         return total;
     }

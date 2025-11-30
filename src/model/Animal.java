@@ -11,6 +11,7 @@ public final class Animal {
     private PorteAnimal porte; //enum
     private TipoConsulta tipoc; //enum
     private Tutor tutor;
+    private boolean teveConsultaPaga;
 
     public Animal(String nome, int idade, TipoAnimal tipoa, EstadoAnimal estado, PorteAnimal porte, TipoConsulta tipoc) {
         this.nome = nome;
@@ -65,6 +66,15 @@ public final class Animal {
             tutor.adicionarAnimal(this);
         }
     }
+
+    public boolean teveConsultaPaga() {
+        return teveConsultaPaga;
+    }
+
+    public void registrarConsultaPaga() {
+        this.teveConsultaPaga = true;
+    }
+
 
 
     @Override

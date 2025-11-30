@@ -3,6 +3,8 @@ package service;
 import enums.TipoConsulta;
 import model.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 public class ConsultaService {
 
@@ -18,7 +20,7 @@ public class ConsultaService {
         this.vetService = vetService;
     }
 
-    public ArrayList<Consulta> getConsultas(){
+    public List<Consulta> getConsultas(){
         return c;
     }
 

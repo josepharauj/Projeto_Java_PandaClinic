@@ -12,13 +12,18 @@ public class Funcionario extends Pessoa implements Folha {
     }
 
     @Override
-    public void quemSou() {System.out.println("Sou um atendente da clínica.");}
+    public void quemSou() {
+        System.out.println("Sou um atendente da clínica.");
+    }
 
     @Override
-    public void minhaAtividade() {System.out.println("Responsável por apoiar o funcionamento da clínica.");}
+    public void minhaAtividade() {
+        System.out.println("Responsável por apoiar o funcionamento da clínica.");
+    }
 
     @Override
     public double calculaSalario() {
+
         return this.salarioBase;
     }
 

@@ -40,7 +40,7 @@ public final class Veterinario extends Pessoa implements Folha {
                 ", idade=" + idade +
                 ", cpf='" + cpf + '\'' +
                 ", telefone=" + telefone +
-                ", especialidade" + especialidade +
+                ", especialidade" + especialidade + '\'' +
                 ",salarioBase" + salarioBase +
                 '}';
     }

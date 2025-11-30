@@ -11,6 +11,7 @@ import service.ConsultaService;
 
 import java.util.Scanner;
 
+// ConsultaController está cinza
 public class ConsultaController {
 
     private ConsultaService service;
@@ -18,7 +19,7 @@ public class ConsultaController {
     private VeterinarioService vetService;
     private Scanner sc = new Scanner(System.in);
 
-
+//  ConsultaController está cinza
     public ConsultaController(ConsultaService service,
                               AnimalService animalService,
                               VeterinarioService vetService) {
@@ -27,7 +28,7 @@ public class ConsultaController {
         this.vetService = vetService;
     }
 
-
+// cadastrarConsulta está cinza
     public void cadastrarConsulta() {
 
         System.out.println("\n=== Cadastro de Consulta ===");
@@ -87,7 +88,7 @@ public class ConsultaController {
         }
     }
 
-
+// registrarPagamento está cinza
     public void registrarPagamento() {
 
         listarConsultas();
@@ -112,7 +113,7 @@ public class ConsultaController {
     }
 
 
-
+// alterarConsulta está cinza
     public void alterarConsulta() {
 
         listarConsultas();

@@ -3,18 +3,22 @@ package Controller;
 import java.util.Scanner;
 import model.Animal;
 import service.AnimalService;
+import service.TutorService;
 
 public class AnimalController {
 
-    private AnimalService animalService = new AnimalService();
+    private AnimalService animalService;
+    private TutorService tutorService;
     private Scanner sc = new Scanner(System.in);
 
-    public AnimalController(AnimalService animalService) {
+    public AnimalController(AnimalService animalService, TutorService tutorService) {
         this.animalService = animalService;
+        this.tutorService = tutorService;
     }
 
     public void cadastrarAnimal() {
         animalService.cadastrarAnimal();
+
     }
 
     public void listarAnimais() {
@@ -22,7 +26,6 @@ public class AnimalController {
     }
 
     public void buscarPorNome() {
-
         System.out.println("Digite o nome do animal para buscar:");
         String nome = sc.nextLine();
 

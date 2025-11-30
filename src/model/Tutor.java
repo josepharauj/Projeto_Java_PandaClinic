@@ -24,17 +24,16 @@ public class Tutor extends Pessoa {
     }
 
     public void adicionarAnimal(Animal animal) {
-        animais.add(animal);
+        if (!animais.contains(animal)) {
+            animais.add(animal);
+            if (animal.getTutor() != this) {
+                animal.setTutor(this);
+            }
+        }
     }
 
     public List<Animal> getAnimais() {
         return animais;
-    }
-
-    public void removerAnimal(int index) {
-        if (index >= 0 && index < animais.size()) {
-            animais.remove(index);
-        }
     }
 
 

@@ -1,5 +1,6 @@
 package service;
 
+import model.Animal;
 import model.Tutor;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,6 @@ public class TutorService {
             t.adicionarAnimal(animal);
         }
     }
-
 
     public Tutor buscarPorNome(String nome) {
         for (Tutor t : tutores) {

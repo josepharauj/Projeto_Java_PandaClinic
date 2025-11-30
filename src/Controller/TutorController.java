@@ -2,7 +2,6 @@ package Controller;
 
 import model.Tutor;
 import service.TutorService;
-
 import java.util.Scanner;
 
 public class TutorController {
@@ -10,6 +9,9 @@ public class TutorController {
     private TutorService tutorService = new TutorService();
     private Scanner sc = new Scanner(System.in);
 
+    public TutorController(TutorService tutorService) {
+        this.tutorService = tutorService;
+    }
 
     public void cadastrarTutor() {
 
@@ -27,10 +29,7 @@ public class TutorController {
         System.out.print("Telefone: ");
         int telefone = Integer.parseInt(sc.nextLine());
 
-        System.out.print("Endereço: ");
-        String endereco = sc.nextLine();
-
-        Tutor t = new Tutor(nome, idade, cpf, telefone, endereco);
+        Tutor t = new Tutor(nome, idade, cpf, telefone);
         tutorService.salvar(t);
 
         System.out.println("Tutor cadastrado com sucesso!");

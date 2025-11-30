@@ -19,7 +19,8 @@ public final class Animal {
         this.estado = estado;
         this.porte = porte;
         this.tipoc = tipoc;
-        this.tutor = tutor;
+
+        this.tutor = null;
     }
      //gets e sets
     public String getNome() { return nome;}
@@ -55,11 +56,16 @@ public final class Animal {
         this.tipoc = tipoc;
     }
 
-    public Tutor getTutor() { return tutor;
+    public Tutor getTutor() {
+        return tutor;
     }
     public void setTutor(Tutor tutor) {
         this.tutor = tutor;
+        if (tutor != null && !tutor.getAnimais().contains(this)) {
+            tutor.adicionarAnimal(this);
+        }
     }
+
 
     @Override
     public String toString() {
@@ -70,7 +76,7 @@ public final class Animal {
                 ", estado=" + estado +
                 ", porte=" + porte +
                 ", tipoc=" + tipoc +
-                ", tutor=" + tutor +
+                ", tutor=" + (tutor != null ? tutor.getNome() : "Sem tutor") +
                 '}';
     }
 }

@@ -1,7 +1,6 @@
 package service;
 
 import model.Veterinario;
-import repository.VeterinarioRepository;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +39,7 @@ public class VeterinarioService {
     }
 
     public void listarVeterinarios() {
+        System.out.println("\n=== Lista de Veterinários ===");
         for (Veterinario v : veterinarios) {
             System.out.println(v.getNome() + " (" + v.getEspecialidade() + ")");
         }

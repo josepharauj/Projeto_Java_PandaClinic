@@ -23,7 +23,7 @@ public final class Animal {
         this.tipoc = tipoc;
 
         this.tutor = null;
-        this.doenca = doenca;
+        this.doenca = null;
     }
      //gets e sets
     public String getNome() { return nome;}

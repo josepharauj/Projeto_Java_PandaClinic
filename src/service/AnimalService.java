@@ -20,30 +20,80 @@ public class AnimalService {
 
     public void cadastrarAnimal() {
 
+
         System.out.print("---CADASTRE SEU PET AQUI!---");
 
         System.out.print("Nome do animal: ");
         String nome = sc.nextLine();
 
-        System.out.print("Informe o tipo do seu Pet: (GATO, CACHORRO, PASSARO OU VACA): ");
-        TipoAnimal tipoa = TipoAnimal.valueOf(sc.nextLine().toUpperCase());
+        TipoAnimal tipoa;
+        while (true) {
+            try {
+                System.out.print("Tipo do animal (GATO, CACHORRO, PASSARO, VACA): ");
+                tipoa = TipoAnimal.valueOf(sc.nextLine().trim().toUpperCase());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Tipo inválido! Digite novamente.");
+            }
+        }
 
-        System.out.print("Informe a idade: ");
-        int idade = Integer.parseInt(sc.nextLine());
+        int idade;
+        while (true) {
+            try {
+                System.out.print("Idade: ");
+                idade = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Idade inválida! Digite um número inteiro.");
+            }
+        }
 
-        System.out.print("Informe o estado de saúde: (SAUDAVEL, DOENTE, URGÊNCIA OU EM TRATAMENTO): ");
-        EstadoAnimal estado = EstadoAnimal.valueOf(sc.nextLine().toUpperCase());
+        EstadoAnimal estado;
+        while (true) {
+            try {
+                System.out.print("Estado de saúde (SAUDAVEL, DOENTE, URGENCIA, TRATAMENTO): ");
+                estado = EstadoAnimal.valueOf(sc.nextLine().trim().toUpperCase());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Estado inválido! Digite novamente.");
+            }
+        }
 
-        System.out.print("Informe o porte (PEQUENO, MEDIO, GRANDE)");
-        PorteAnimal porte = PorteAnimal.valueOf(sc.nextLine().toUpperCase());
 
-        System.out.print("Informe o tipo de consulta (ROTINA, VACINACAO, EMERGENCIA, RETORNO, CIRURGIA):");
-        TipoConsulta tipoc = TipoConsulta.valueOf(sc.nextLine().toUpperCase());
+        PorteAnimal porte;
+        while (true) {
+            try {
+                System.out.print("Porte (PEQUENO, MEDIO, GRANDE): ");
+                porte = PorteAnimal.valueOf(sc.nextLine().trim().toUpperCase());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Porte inválido! Digite novamente.");
+            }
+        }
+
+        TipoConsulta tipoc;
+        while (true) {
+            try {
+                System.out.print("Tipo de consulta (ROTINA, VACINACAO, EMERGENCIA, RETORNO, CIRURGIA): ");
+                tipoc = TipoConsulta.valueOf(sc.nextLine().trim().toUpperCase());
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Tipo de consulta inválido! Digite novamente.");
+            }
+        }
+
 
         Animal a = new Animal(nome, idade, tipoa, estado, porte, tipoc);
 
+        //Doença
+        System.out.print("Informe a doença (ou deixe vazio se não houver): ");
+        String doenca = sc.nextLine().trim();
+        if (!doenca.isEmpty()) {
+            a.setDoenca(doenca);
+        }
+
         //Associando animal ao tutor
-        System.out.println("Informe o nome do tutor do animal (ou deixe vazio para nenhum tutor): ");
+        System.out.println("Nome do tutor do animal (ou deixe vazio para nenhum tutor): ");
         String nomeTutor = sc.nextLine();
 
         if (!nomeTutor.isEmpty()) {

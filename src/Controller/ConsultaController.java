@@ -8,7 +8,7 @@ import model.Veterinario;
 import service.AnimalService;
 import service.VeterinarioService;
 import service.ConsultaService;
-
+import service.RelatorioService;
 import java.util.Scanner;
 
 // ConsultaController está cinza
@@ -36,14 +36,12 @@ public class ConsultaController {
         // BUSCAR ANIMAL
         System.out.print("Nome do animal: ");
         String nomeAnimal = sc.nextLine();
-
         Animal a = animalService.buscarPorNome(nomeAnimal);
-
         if (a == null) {
             System.out.println("Animal não encontrado!");
             return;
         }
-
+        // BUSCAR VETERINÁRIO
         System.out.print("Nome do veterinário: ");
         String nomeVet = sc.nextLine();
 
@@ -54,7 +52,7 @@ public class ConsultaController {
             return;
         }
 
-
+        //  TIPO DE CONSULTA
         System.out.println("Tipos disponíveis: ROTINA, VACINACAO, EMERGENCIA, RETORNO, CIRURGIA");
         System.out.print("Tipo da consulta: ");
         String tipoStr = sc.nextLine().toUpperCase();
@@ -67,6 +65,7 @@ public class ConsultaController {
             return;
         }
 
+        // DATA
         System.out.print("Data da consulta: ");
         String data = sc.nextLine();
 
@@ -77,7 +76,7 @@ public class ConsultaController {
     }
 
 
-
+    //LISTA DE CONSULTAS
     public void listarConsultas() {
         System.out.println("\n=== Lista de Consultas ===");
 
@@ -88,7 +87,7 @@ public class ConsultaController {
         }
     }
 
-// registrarPagamento está cinza
+    //PAGAMENTO
     public void registrarPagamento() {
 
         listarConsultas();
@@ -113,7 +112,7 @@ public class ConsultaController {
     }
 
 
-// alterarConsulta está cinza
+// ALTERAÇÃO
     public void alterarConsulta() {
 
         listarConsultas();
@@ -155,5 +154,24 @@ public class ConsultaController {
 
         System.out.println("Consulta alterada com sucesso!");
     }
+
+    public void gerarRelatorio() {
+        System.out.println("\n=== Relatório de Consultas ===");
+
+        RelatorioService relatorioService = new RelatorioService(service.getConsultas());
+
+        // Tipo de animal mais frequente
+        relatorioService.tipoAnimalMaisFrequente();
+
+        // Doença mais frequente
+        relatorioService.doencaMaisFrequente();
+
+        // Alertar tutor sobre doenças repetidas
+        relatorioService.alertarTutor();
+
+        // Aplicar desconto automático em consultas não pagas
+        relatorioService.aplicarDescontoAutomatico(10); // desconto de 10%
+    }
 }
+
 

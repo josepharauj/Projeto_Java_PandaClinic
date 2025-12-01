@@ -5,10 +5,12 @@ import model.Animal;
 import model.Tutor;
 import enums.*;
 import repository.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnimalService {
 
-    private AnimalRepository repository = new AnimalRepository();
+    private List<Animal> animais = new ArrayList<>();
     private TutorService tutorService;
     private Scanner sc = new Scanner(System.in);
 
@@ -40,7 +42,7 @@ public class AnimalService {
 
         Animal a = new Animal(nome, idade, tipoa, estado, porte, tipoc);
 
-        //Assoiciando animal ao tutor
+        //Associando animal ao tutor
         System.out.println("Informe o nome do tutor do animal (ou deixe vazio para nenhum tutor): ");
         String nomeTutor = sc.nextLine();
 
@@ -54,22 +56,16 @@ public class AnimalService {
                 System.out.println("Tutor não encontrado! Animal será cadastrado sem tutor.");
             }
         }
-
-        repository.salvar(a);
-
-        System.out.println("Seu animal foi cadastrado com sucesso!");
-        System.out.println("Seja bem-vindo ao PandaClinic!");
+        animais.add(a);
+        System.out.println("Animal cadastrado com sucesso!");
     }
 
-    public void listarAnimais() {
-        System.out.println("--- Lista de Animais ---");
-        for (Animal a : repository.listar()) {
-            System.out.println(a);
-        }
+    public List<Animal> listarAnimais() {
+        return animais;
     }
 
     public Animal buscarPorNome(String nome) {
-        for (Animal a : repository.listar()) {
+        for (Animal a : animais) {
             if (a.getNome().equalsIgnoreCase(nome)) {
                 return a;
             }
@@ -77,4 +73,10 @@ public class AnimalService {
         return null;
     }
 
+    public void adicionarAnimal(Animal a) {
+        animais.add(a);
+    }
 }
+
+
+

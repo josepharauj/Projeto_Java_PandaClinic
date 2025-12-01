@@ -3,10 +3,17 @@ package service;
 import model.Veterinario;
 import repository.VeterinarioRepository;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class VeterinarioService {
-    private VeterinarioRepository repo = new VeterinarioRepository();
+
+    private List<Veterinario> veterinarios = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
+
+    //public void adicionarVeterinario(Veterinario v) {
+      //  repo.salvar(v); // ou adicionar na lista interna}
 
     public void cadastrarVeterinario() {
         System.out.println("\n=== Cadastro de Veterinário ===");
@@ -27,25 +34,27 @@ public class VeterinarioService {
         int telefone = sc.nextInt();
 
         Veterinario v = new Veterinario(nome, idade, especialidade, cpf, telefone);
-
-        repo.salvar(v);
+        veterinarios.add(v);
 
         System.out.println("Veterinário cadastrado com sucesso!");
     }
 
     public void listarVeterinarios() {
-        System.out.println("\n=== Lista de Veterinários ===");
-        for (Veterinario v : repo.listar()) {
-            System.out.println(v);
+        for (Veterinario v : veterinarios) {
+            System.out.println(v.getNome() + " (" + v.getEspecialidade() + ")");
         }
     }
 
-    public VeterinarioRepository getRepo() {
-        return repo;
+    public List<Veterinario> getVeterinarios() {
+        return veterinarios;
+    }
+
+    public void adicionarVeterinario(Veterinario v) {
+        veterinarios.add(v);
     }
 
     public Veterinario buscarPorNome(String nome) {
-        for (Veterinario v : repo.listar()) {
+        for (Veterinario v : veterinarios) {
             if (v.getNome().equalsIgnoreCase(nome)) {
                 return v;
             }

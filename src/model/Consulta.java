@@ -67,6 +67,11 @@ public class Consulta {
         return paga;
     }
 
+    public Animal getAnimal() {
+        return a;
+    }
+
+
 
     @Override
     public String toString() {

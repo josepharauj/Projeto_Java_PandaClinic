@@ -12,6 +12,7 @@ public final class Animal {
     private TipoConsulta tipoc; //enum
     private Tutor tutor;
     private boolean teveConsultaPaga;
+    private String doenca;
 
     public Animal(String nome, int idade, TipoAnimal tipoa, EstadoAnimal estado, PorteAnimal porte, TipoConsulta tipoc) {
         this.nome = nome;
@@ -22,6 +23,7 @@ public final class Animal {
         this.tipoc = tipoc;
 
         this.tutor = null;
+        this.doenca = doenca;
     }
      //gets e sets
     public String getNome() { return nome;}
@@ -75,7 +77,13 @@ public final class Animal {
         this.teveConsultaPaga = true;
     }
 
+    public String getDoenca() {
+        return doenca;
+    }
 
+    public void setDoenca(String doenca) {
+        this.doenca = doenca;
+    }
 
     @Override
     public String toString() {

@@ -49,3 +49,5 @@ O **PandaClinic** é um sistema de gestão desenvolvido para otimizar o controle
 1. Clone o repositório:  
    ```bash
    git clone https://github.com/seu-usuario/PandaClinic.git
+
+   👤 Autor: José M. Ferreira de Araújo
